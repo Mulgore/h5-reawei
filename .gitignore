@@ -10,9 +10,6 @@ dist
 *.ipr
 *.iws
 classes/
-src/main/resources/rebel.xml
-git.sh
-rebel.xml
 /**/*.log
 .DS_Store
 *.zip
