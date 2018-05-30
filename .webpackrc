@@ -1,4 +1,11 @@
 {
+  "proxy": {
+    "/api/v1": {
+      "target": "http://localhost:8080",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api/v1" : "/api/v1" }
+    }
+  },
   "extraBabelPlugins":[
    ["import", { "libraryName":"antd-mobile", "style":"css" }]
   ]
