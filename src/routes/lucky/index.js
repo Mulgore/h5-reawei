@@ -38,20 +38,28 @@ const Lucky = ({ lucky, dispatch, form: { getFieldProps, validateFields } }) => 
       dispatch({type:'lucky/getLucky', payload: value})
     });
   };
-
+  let height = document.body.clientHeight * 121 / 750;
   return (
-    <div className={styles.bg}>
+    <div>
       <Helmet>
         <title>一键最佳</title>
       </Helmet>
-      <div className={styles.banner}/>
-      <div className={styles.from_}>
-        <InputItem className={styles.phone_input} {...getFieldProps('phone')} type="phone" placeholder="领取红包手机号">手机号码</InputItem>
-        <InputItem className={styles.url_input} {...getFieldProps('url')} type="text" placeholder="饿了么红包链接">红包链接</InputItem>
+      <div className={styles.from_bg}>
+        <div className={styles.from_}>
+          <InputItem className={styles.phone_input} {...getFieldProps('phone')} type="phone" placeholder="领取红包手机号">手机号码</InputItem>
+          <InputItem className={styles.url_input} {...getFieldProps('url')} type="text" placeholder="饿了么红包链接">红包链接</InputItem>
+          <div className={styles.btn_div}>
+            <Button type="primary" onClick={() => onHandleOk()}>一键领取</Button>
+          </div>
+          <div className={styles.footer_info}>
+            <span>1. 饿了么红包：https://h5.ele.me/hongbao/开头的链接,链接不带 lucky_number 的不是拼手气，不能用。</span><br/>
+            <span>如何复制红包链接？</span><br/>
+            <span>1. 分享到 QQ，选择 “我的电脑”，PC 版 QQ 复制链接。</span><br/>
+            <span>2. 分享到微信，PC 版微信右键用浏览器打开，复制链接。</span><br/>
+          </div>
+        </div>
       </div>
-      <div className={styles.btn_div}>
-        <Button type="primary" onClick={() => onHandleOk()}>一键领取</Button>
-      </div>
+      <img className={styles.banner_img} src={require('../../assets/lucky/fw658.png')} alt="aa"/>
     </div>
   );
 }
