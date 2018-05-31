@@ -38,7 +38,6 @@ const Lucky = ({ lucky, dispatch, form: { getFieldProps, validateFields } }) => 
       dispatch({type:'lucky/getLucky', payload: value})
     });
   };
-  let height = document.body.clientHeight * 121 / 750;
   return (
     <div>
       <Helmet>
@@ -49,7 +48,7 @@ const Lucky = ({ lucky, dispatch, form: { getFieldProps, validateFields } }) => 
           <InputItem className={styles.phone_input} {...getFieldProps('phone')} type="phone" placeholder="领取红包手机号">手机号码</InputItem>
           <InputItem className={styles.url_input} {...getFieldProps('url')} type="text" placeholder="饿了么红包链接">红包链接</InputItem>
           <div className={styles.btn_div}>
-            <Button type="primary" onClick={() => onHandleOk()}>一键领取</Button>
+            <span onClick={() => onHandleOk()}>一键领取</span>
           </div>
           <div className={styles.footer_info}>
             <span>1. 饿了么红包：https://h5.ele.me/hongbao/开头的链接,链接不带 lucky_number 的不是拼手气，不能用。</span><br/>
