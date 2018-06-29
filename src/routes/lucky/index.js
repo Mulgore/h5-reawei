@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { connect } from 'dva';
 import styles from './index.less';
-import { InputItem, Toast, Button } from 'antd-mobile';
+import { InputItem, Toast } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 const Lucky = ({ lucky, dispatch, form: { getFieldProps, validateFields } }) => {
