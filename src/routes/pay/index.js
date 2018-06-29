@@ -6,7 +6,6 @@ import { Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 const Pay = ({ pay, dispatch, form: { getFieldProps, validateFields } }) => {
-
   const onHandleOk = () => {
     validateFields((errors, value) => {
         value.amount = 0.01;

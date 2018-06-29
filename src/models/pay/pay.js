@@ -2,6 +2,7 @@ import pathToRegexp from 'path-to-regexp';
 import {
   apply
 } from '../../services/pay/pay';
+import { Toast } from 'antd-mobile';
 
 export default {
 
@@ -28,9 +29,9 @@ export default {
     * apply({ payload }, { call, put }) {
       const data = yield call(apply, payload);
       if (data.success) {
-        yield put({
-          type: 'querySuccess'
-        });
+       window.location.href=data.url;
+      } else {
+        Toast.offline(data.message, 2);
       }
     },
   },

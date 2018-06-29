@@ -80,12 +80,20 @@ export default function request (options) {
         list: ressult,
       }
     }
-    return Promise.resolve({
-      success: true,
-      message: statusText,
-      statusCode: status,
-      ...ressult,
-    })
+    if(data.code === 0){
+      return Promise.resolve({
+        success: true,
+        message: statusText,
+        statusCode: status,
+        ...ressult.data,
+      });
+    } else {
+      return Promise.resolve({
+        success: false,
+        message: data.message,
+        statusCode: data.code,
+      });
+    }
   }).catch((error) => {
     const { response } = error
     let msg
