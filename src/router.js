@@ -18,6 +18,10 @@ const Routers = function ({ history, app }) {
       path: '/lucky',
       models: () => [import('./models/lucky/lucky')],
       component: () => import('./routes/lucky/'),
+    }, {
+      path: '/pay',
+      models: () => [import('./models/pay/pay')],
+      component: () => import('./routes/pay/'),
     },
   ]
 
