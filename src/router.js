@@ -22,6 +22,9 @@ const Routers = function ({ history, app }) {
       path: '/pay',
       models: () => [import('./models/pay/pay')],
       component: () => import('./routes/pay/'),
+    }, {
+      path: '/love',
+      component: () => import('./routes/love/'),
     },
   ]
 

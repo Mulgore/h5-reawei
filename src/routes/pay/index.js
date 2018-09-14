@@ -2,23 +2,19 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { connect } from 'dva';
-import { Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
 const Pay = ({ pay, dispatch, form: { getFieldProps, validateFields } }) => {
-  const onHandleOk = () => {
-    validateFields((errors, value) => {
-        value.amount = 0.01;
-        value.merNo ="8000000735634733";
-      dispatch({type:'pay/apply', payload: value})
-    });
-  };
+  const { payload } = pay
   return (
     <div>
       <Helmet>
         <title>收银台</title>
       </Helmet>
-      <Button onClick={ () => onHandleOk() }>确认付款</Button>
+      <form action="http://127.0.0.1:10011/pay/url/return" method="post">
+      <input type="hidden" name="amount" value={payload && payload.req_data}/>
+      <input type="submit" value="确认付款" />
+      </form>
     </div>
   );
 }
